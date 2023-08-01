@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_notes_app/widgets/text_field.dart';
-import 'dart:developer' as dev show log;
 
 class EmailVerification extends StatefulWidget {
   const EmailVerification({super.key});
