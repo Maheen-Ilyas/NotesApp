@@ -103,8 +103,10 @@ class _LogInScreenState extends State<LogInScreen> {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/signup', (route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/signup',
+                    (route) => false,
+                  );
                 },
                 child: const Text(
                   "Don't have an account? Signup here!",

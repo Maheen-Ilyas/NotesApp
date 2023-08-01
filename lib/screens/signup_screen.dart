@@ -105,8 +105,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/login', (route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/login',
+                    (route) => false,
+                  );
                 },
                 child: const Text(
                   "Do you have an account already? Login here!",
