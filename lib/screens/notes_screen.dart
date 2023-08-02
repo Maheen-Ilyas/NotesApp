@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as dev show log;
 
@@ -22,6 +23,13 @@ class _NotesScreenState extends State<NotesScreen> {
                 case Menu.logout:
                   final ifLogout = await logOutDialogBox(context);
                   dev.log(ifLogout.toString());
+                  if (ifLogout) {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/login',
+                      (_) => false,
+                    );
+                  }
                   break;
               }
             },
