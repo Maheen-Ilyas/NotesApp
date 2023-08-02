@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:my_notes_app/firebase_options.dart';
 import 'package:my_notes_app/screens/home_screen.dart';
 import 'package:my_notes_app/screens/login_screen.dart';
+import 'package:my_notes_app/screens/notes_screen.dart';
 import 'package:my_notes_app/screens/signup_screen.dart';
 
 Future main() async {
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LogInScreen(),
         '/signup': (context) => const SignUpScreen(),
+        '/notes': (context) => const NotesScreen(),
       },
       title: 'Flutter Demo',
       theme: ThemeData.light(),
