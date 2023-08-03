@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:developer' as dev show log;
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:my_notes_app/constants/routes.dart';
 import 'package:my_notes_app/widgets/text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -106,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               InkWell(
                 onTap: () {
                   Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/login',
+                    loginRoute,
                     (route) => false,
                   );
                 },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:my_notes_app/constants/routes.dart';
 import 'package:my_notes_app/firebase_options.dart';
 import 'package:my_notes_app/screens/home_screen.dart';
 import 'package:my_notes_app/screens/login_screen.dart';
@@ -21,9 +22,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/login': (context) => const LogInScreen(),
-        '/signup': (context) => const SignUpScreen(),
-        '/notes': (context) => const NotesScreen(),
+        loginRoute: (context) => const LogInScreen(),
+        signupRoute: (context) => const SignUpScreen(),
+        notesRoute: (context) => const NotesScreen(),
       },
       title: 'Flutter Demo',
       theme: ThemeData.light(),
