@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:developer' as dev show log;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_notes_app/constants/routes.dart';
+import 'package:my_notes_app/functions/error_dialog.dart';
 import 'package:my_notes_app/widgets/text_field.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -70,10 +71,16 @@ class _LogInScreenState extends State<LogInScreen> {
                     dev.log(userCredential.toString());
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
-                      dev.log("User not found");
+                      // dev.log("User not found");
+                      await errorDialogBox(context, "User not found");
                     } else if (e.code == 'wrong-password') {
-                      dev.log("Wrong password");
+                      // dev.log("Wrong password");
+                      await errorDialogBox(context, "Wrong password");
+                    } else {
+                      await errorDialogBox(context, e.code);
                     }
+                  } catch (e) {
+                    await errorDialogBox(context, e.toString());
                   }
                 },
                 style: ButtonStyle(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:developer' as dev show log;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_notes_app/constants/routes.dart';
+import 'package:my_notes_app/functions/error_dialog.dart';
 import 'package:my_notes_app/widgets/text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -70,12 +71,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     dev.log(userCredential.toString());
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
-                      dev.log("Weak password");
+                      // dev.log("Weak password");
+                      await errorDialogBox(context, "Weak password");
                     } else if (e.code == 'invalid-email') {
-                      dev.log("Invalid password");
+                      // dev.log("Invalid password");
+                      await errorDialogBox(context, "Invalid password");
                     } else if (e.code == 'email-already-in-use') {
-                      dev.log("Email already in use");
+                      // dev.log("Email already in use");
+                      await errorDialogBox(context, "Email already in use");
                     }
+                  } catch (e) {
+                    await errorDialogBox(context, e.toString());
                   }
                 },
                 style: ButtonStyle(
