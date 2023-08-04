@@ -31,7 +31,9 @@ class _EmailVerificationState extends State<EmailVerification> {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () async {
+                  // Finding the current user
                   final user = FirebaseAuth.instance.currentUser;
+                  // Sending the email verification link to the user
                   await user?.sendEmailVerification();
                 },
                 style: ButtonStyle(

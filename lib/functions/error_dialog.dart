@@ -25,6 +25,7 @@ Future<void> errorDialogBox(BuildContext context, String text) {
                 (states) => Colors.white,
               ),
             ),
+            // This is done to close the error dialog and return to the screen
             onPressed: () {
               Navigator.of(context).pop();
             },

@@ -13,11 +13,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  // Text controllers
   late final TextEditingController _email;
   late final TextEditingController _password;
 
   @override
   void initState() {
+    // Initializing the controllers
     _email = TextEditingController();
     _password = TextEditingController();
     super.initState();
@@ -25,6 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   void dispose() {
+    // Only text editing controllers are disposed
     _email.dispose();
     _password.dispose();
     super.dispose();
@@ -32,6 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // SafeArea adds any necessary padding required
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -41,8 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Image.asset(""),
-              // const SizedBox(height: 24),
+              // Image here
               CustomTextField(
                 controller: _email,
                 hintText: "Email",
@@ -69,6 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       password: password,
                     );
                     dev.log(userCredential.toString());
+                    // Error handling on signup
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
                       // dev.log("Weak password");

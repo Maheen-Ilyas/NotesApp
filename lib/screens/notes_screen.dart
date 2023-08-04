@@ -11,6 +11,7 @@ class NotesScreen extends StatefulWidget {
   State<NotesScreen> createState() => _NotesScreenState();
 }
 
+// Has all the tabs needed in the menu
 enum Menu { logout }
 
 class _NotesScreenState extends State<NotesScreen> {
@@ -25,6 +26,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 case Menu.logout:
                   final ifLogout = await logOutDialogBox(context);
                   dev.log(ifLogout.toString());
+                  // Sending the user back to login screen after logout
                   if (ifLogout) {
                     await FirebaseAuth.instance.signOut();
                     Navigator.of(context).pushNamedAndRemoveUntil(

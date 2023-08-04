@@ -69,6 +69,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       password: password,
                     );
                     dev.log(userCredential.toString());
+                    // Error handling on login
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
                       // dev.log("User not found");
