@@ -25,10 +25,10 @@ class HomeScreen extends StatelessWidget {
                 case ConnectionState.done:
                   final user = FirebaseAuth.instance.currentUser;
                   if (user != null) {
-                    // The user is directed to main page after he/she verifies their email
+                    // The user is directed to main screen after he/she verifies their email
                     if (user.emailVerified) {
                       return const NotesScreen();
-                    // Else they are directed to the email verification page
+                    // Else they are directed to the email verification screen
                     } else {
                       return const EmailVerification();
                     }

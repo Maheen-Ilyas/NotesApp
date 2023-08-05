@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:my_notes_app/constants/routes.dart';
 import 'package:my_notes_app/firebase_options.dart';
+import 'package:my_notes_app/screens/email_verification_screen.dart';
 import 'package:my_notes_app/screens/home_screen.dart';
 import 'package:my_notes_app/screens/login_screen.dart';
 import 'package:my_notes_app/screens/notes_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         loginRoute: (context) => const LogInScreen(),
         signupRoute: (context) => const SignUpScreen(),
         notesRoute: (context) => const NotesScreen(),
+        verifyEmailRoute:(context) => const EmailVerification(),
       },
       title: 'Flutter Demo',
       theme: ThemeData.light(),
