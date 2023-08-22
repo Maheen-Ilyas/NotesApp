@@ -83,12 +83,10 @@ class _EmailVerificationState extends State<EmailVerification> {
                 ElevatedButton(
                   onPressed: () async {
                     await FirebaseAuth.instance.signOut();
-                    if (context.mounted) {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        signupRoute,
-                        (route) => false,
-                      );
-                    }
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      signupRoute,
+                      (route) => false,
+                    );
                   },
                   style: ButtonStyle(
                     padding: MaterialStateProperty.resolveWith(

@@ -81,9 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       );
                       final user = FirebaseAuth.instance.currentUser;
                       await user?.sendEmailVerification();
-                      if (context.mounted) {
-                        Navigator.of(context).pushNamed(verifyEmailRoute);
-                      }
+                      Navigator.of(context).pushNamed(verifyEmailRoute);
                       // Error handling on signup
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'weak-password') {

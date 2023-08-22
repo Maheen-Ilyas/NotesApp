@@ -29,12 +29,10 @@ class _NotesScreenState extends State<NotesScreen> {
                   // Sending the user back to login screen after logout
                   if (ifLogout) {
                     await FirebaseAuth.instance.signOut();
-                    if (context.mounted) {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        loginRoute,
-                        (_) => false,
-                      );
-                    }
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      loginRoute,
+                      (_) => false,
+                    );
                   }
                   break;
               }
